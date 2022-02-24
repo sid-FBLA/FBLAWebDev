@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("hello world");
-
-    //Expans and contracts mobile navigation menu
+    AOS.init();
+    //Expands and contracts mobile navigation menu
     let mobileNav = document.querySelector("#mobile-menu");
     console.log(mobileNav);
     let mobileNavExpand = mobileNav.offsetHeight;
