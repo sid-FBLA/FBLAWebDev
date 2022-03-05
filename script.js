@@ -23,8 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
             $("#mobile-menu").height(mobileNavExpand).animate({height: 0}, 500);
             menuButtonOpen.classList.remove("hidden");
             menuButtonClose.classList.add("hidden");
-        }   
-    })
-    
-   
+        }
+    });
+    //modifying Datepicker
+    const dateSubmissions = document.querySelectorAll(".submitDate");
+    for (i = 0; i < dateSubmissions.length; i += 1) {
+      let submitChosen = dateSubmissions[i];
+      dateSubmissions[i].addEventListener("click", function(e) {
+        const today = new Date();
+        console.log(today);
+        console.log(submitChosen);
+        const form = submitChosen.parentNode.parentNode;
+        console.log(form);
+        let selectedDate = form.querySelector(".datepicker").value;
+        console.log(selectedDate);
+        if(selectedDate < today) {
+          console.log("selectedDate is in the past");
+        }
+      })
+    }
+
+    console.log(dateSubmissions);
+
+
+
 });
