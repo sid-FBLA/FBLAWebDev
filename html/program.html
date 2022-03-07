@@ -3,9 +3,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!--Flowbite CDN for date picker-->
   <script src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
@@ -19,7 +19,7 @@
       <div class="flex justify-between h-16">
         <div class="flex w-full">
           <div class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-9 w-auto" src=",./img/logo-mobile.png" alt="Workflow">
+            <img class="block lg:hidden h-9 w-auto" src="../img/logo-mobile.png" alt="Workflow">
             <img class="hidden lg:block h-12 w-auto" src="../img/logo.png" alt="Workflow">
           </div>
           <div class="hidden sm:ml-auto sm:flex sm:space-x-8">
@@ -63,15 +63,40 @@
     <div class="sm:hidden" id="mobile-menu">
       <div class="pt-2 pb-3 space-y-1">
         <!-- Current: "bg-blue-50 border-blue-500 text-blue-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" -->
-        <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
-        <a href="html/contact.html" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
-        <a href="html/programs.html" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Programs</a>
-        <a href="html/membership.html" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Membership</a>
+        <a href="../index.html" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+        <a href="contact.html" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
+        <a href="programs.html" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Programs</a>
+        <a href="membership.html" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Membership</a>
       </div>
     </div>
   </nav>
+  <!-- Alert if booked-->
+  <div class="submitAlert hidden fixed top-10 rounded-md w-full flex items-center justify-center z-50">
+    <div class="flex max-w-7xl bg-green-50 p-4">
+      <div class="flex-shrink-0">
+        <!-- Heroicon name: solid/check-circle -->
+        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="ml-3">
+        <p class="text-sm font-medium text-green-800">Thank you for booking a session! An invoice has been sent to your email.</p>
+      </div>
+      <div class="ml-auto pl-3">
+        <div class="-mx-1.5 -my-1.5">
+          <button type="button" class="inline-flex bg-green-50 rounded-md p-1.5 text-green-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-green-50 focus:ring-green-600">
+            <span class="sr-only">Dismiss</span>
+            <!-- Heroicon name: solid/x -->
+            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Hero card -->
-  <div class="relative">
+  <div class="relative" data-aos="fade-down">
     <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100"></div>
     <div class="mx-auto">
       <div class="relative shadow-xl sm:overflow-hidden">
@@ -86,9 +111,8 @@
           </h1>
           <p class="mt-6 max-w-lg mx-auto text-center text-xl text-blue-200 sm:max-w-3xl">Built With Science. Delivered With Passion.</p>
           <div class="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-            <div class="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-              <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-blue-50 sm:px-8"> Get started </a>
-              <a href="#" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"> Live demo </a>
+            <div class="space-y-4 sm:space-y-0 sm:mx-auto">
+              <a href="#rowingworkouts" class="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-blue-50 sm:px-8"> Get started </a>
             </div>
           </div>
         </div>
@@ -96,28 +120,28 @@
     </div>
   </div>
   <!-- First Card Row -->
-  <div class="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+  <div id="rowingworkouts" class="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 sessions">
     <div class="absolute inset-0">
       <div class="h-1/3 sm:h-2/3"></div>
     </div>
     <div class="relative max-w-7xl mx-auto">
       <div class="text-center">
-        <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">From the blog</h2>
-        <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.</p>
+        <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">Rowing Workouts</h2>
+        <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">Raring to row? Experience a group rowing workout with our experienced trainers.</p>
       </div>
       <div class="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden" data-aos="fade-down">
           <div class="flex-shrink-0">
             <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
           </div>
           <div class="flex-1 bg-white p-6 flex flex-col justify-between">
             <div class="flex-1">
-              <p class="text-sm font-medium text-indigo-600">
-                <a href="#" class="hover:underline"> Article </a>
+              <p class="text-sm font-medium text-blue-600">
+                <a href="#" class="hover:underline"> Beginner </a>
               </p>
               <a href="#" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">Boost your conversion rate</p>
-                <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.</p>
+                <p class="text-xl font-semibold text-gray-900">Rowing Cindy</p>
+                <p class="mt-3 text-base text-gray-500">Rowing Cindy features a series of calisthenic workouts in conjunction with rowing to work every muscle in your body.</p>
               </a>
             </div>
             <div class="mt-6 flex items-center">
@@ -132,25 +156,30 @@
                   <a href="#" class="hover:underline"> Roel Aufderehar </a>
                 </p>
                 <div class="flex space-x-1 text-sm text-gray-500">
-                  <time datetime="2020-03-16"> Mar 16, 2020 </time>
+                  <time datetime="2020-03-16"> Certified Personal Trainer </time>
                   <span aria-hidden="true"> &middot; </span>
-                  <span> 6 min read </span>
+                  <span> 6 years experience </span>
                 </div>
               </div>
             </div>
             <!--Price (Begin Copying From Here)-->
             <p class="text-xl font-semibold text-gray-900 mt-5">$60/hr</p>
-            <form>
+            <form class="">
+              <!--Email-->
+              <div class="mt-5">
+                <input type="email" name="email" id="email" required class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@gmail.com" required>
+              </div>
               <!--Datepicker-->
               <div class="relative mt-5">
                 <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                   <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
                 </div>
-                <input datepicker="" required datepicker-title="Book a 1 hour session" datepicker-orientation="bottom left" datepicker-autohide="" type="text" class="datepicker bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700" placeholder="Select date">
+                <input datepicker="" required datepicker-title="Book a 1 hour session" datepicker-orientation="bottom left" datepicker-autohide="" type="text" class="datepicker  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700" placeholder="Select date">
               </div>
+              <p class="hidden mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Looks like you selected a date in the past. We changed it to tomorrow's date for you.</p>
               <!--Time Picker-->
               <div class="mt-5">
-                <select id="countries" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <select id="countries" required class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                   <option>11 A.M</option>
                   <option>1 P.M</option>
                   <option>3 P.M</option>
@@ -158,24 +187,24 @@
               </div>
               <!--Submit Button-->
               <div class="mt-5">
-                <button type="submit" class="submitDate w-full bg-blue-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-blue-700 hover:duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Book (1hr session)</button>
+                <button type="submit" class="submitDate w-full bg-blue-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-blue-700 hover:duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Book a 1 hour session</button>
               </div>
             </form>
           </div>
         </div>
 
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden" data-aos="fade-down">
           <div class="flex-shrink-0">
             <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
           </div>
           <div class="flex-1 bg-white p-6 flex flex-col justify-between">
             <div class="flex-1">
-              <p class="text-sm font-medium text-indigo-600">
-                <a href="#" class="hover:underline"> Video </a>
+              <p class="text-sm font-medium text-blue-600">
+                <a href="#" class="hover:underline"> Intermediate </a>
               </p>
               <a href="#" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">How to use search engine optimization to drive sales</p>
-                <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.</p>
+                <p class="text-xl font-semibold text-gray-900">Tabata Rowing With Weights</p>
+                <p class="mt-3 text-base text-gray-500">Join a high-intensity rowing workout paired with periods of light lifting to lose weight and build muscle.</p>
               </a>
             </div>
             <div class="mt-6 flex items-center">
@@ -190,27 +219,54 @@
                   <a href="#" class="hover:underline"> Brenna Goyette </a>
                 </p>
                 <div class="flex space-x-1 text-sm text-gray-500">
-                  <time datetime="2020-03-10"> Mar 10, 2020 </time>
+                  <time datetime="2020-03-10"> Health & Wellness Coach </time>
                   <span aria-hidden="true"> &middot; </span>
-                  <span> 4 min read </span>
+                  <span> 4 years experience </span>
                 </div>
               </div>
             </div>
+            <!--Price (Begin Copying From Here)-->
+            <p class="text-xl font-semibold text-gray-900 mt-5">$60/hr</p>
+            <form>
+              <!--Email-->
+              <div class="mt-5">
+                <input type="email" name="email" id="email" required class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@gmail.com" required>
+              </div>
+              <!--Datepicker-->
+              <div class="relative mt-5">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                </div>
+                <input datepicker="" required datepicker-title="Book a 1 hour session" datepicker-orientation="bottom left" datepicker-autohide="" type="text" class="datepicker  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700" placeholder="Select date">
+              </div>
+              <p class="hidden mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Looks like you selected a date in the past. We changed it to tomorrow's date for you.</p>
+              <!--Time Picker-->
+              <div class="mt-5">
+                <select id="countries" required class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option>1 P.M</option>
+                  <option>4 P.M</option>
+                </select>
+              </div>
+              <!--Submit Button-->
+              <div class="mt-5">
+                <button type="submit" class="submitDate w-full bg-blue-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-blue-700 hover:duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Book a 1 hour session</button>
+              </div>
+            </form>
           </div>
         </div>
 
-        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden" data-aos="fade-down">
           <div class="flex-shrink-0">
             <img class="h-48 w-full object-cover" src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80" alt="">
           </div>
           <div class="flex-1 bg-white p-6 flex flex-col justify-between">
             <div class="flex-1">
-              <p class="text-sm font-medium text-indigo-600">
-                <a href="#" class="hover:underline"> Case Study </a>
+              <p class="text-sm font-medium text-blue-600">
+                <a href="#" class="hover:underline"> Advanced </a>
               </p>
               <a href="#" class="block mt-2">
-                <p class="text-xl font-semibold text-gray-900">Improve your customer experience</p>
-                <p class="mt-3 text-base text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.</p>
+                <p class="text-xl font-semibold text-gray-900">Viking Rowing Challenge</p>
+                <p class="mt-3 text-base text-gray-500">Viking warriors are renowned rowers. This workout, aptly called the Viking Rowing Challenge, will test your willpower as it builds your fitness and endurance.</p>
               </a>
             </div>
             <div class="mt-6 flex items-center">
@@ -225,16 +281,84 @@
                   <a href="#" class="hover:underline"> Daniela Metz </a>
                 </p>
                 <div class="flex space-x-1 text-sm text-gray-500">
-                  <time datetime="2020-02-12"> Feb 12, 2020 </time>
+                  <time datetime="2020-02-12"> Certified Personal Trainer </time>
                   <span aria-hidden="true"> &middot; </span>
-                  <span> 11 min read </span>
+                  <span> 4 years experience </span>
                 </div>
               </div>
             </div>
+            <!--Price (Begin Copying From Here)-->
+            <p class="text-xl font-semibold text-gray-900 mt-5">$60/hr</p>
+            <form>
+              <!--Email-->
+              <div class="mt-5">
+                <input type="email" name="email" id="email" required class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@gmail.com" required>
+              </div>
+              <!--Datepicker-->
+              <div class="relative mt-5">
+                <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                </div>
+                <input datepicker="" required datepicker-title="Book a 1 hour session" datepicker-orientation="bottom left" datepicker-autohide="" type="text" class="datepicker  border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700" placeholder="Select date">
+              </div>
+              <p class="hidden mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">Oops!</span> Looks like you selected a date in the past. We changed it to tomorrow's date for you.</p>
+              <!--Time Picker-->
+              <div class="mt-5">
+                <select id="countries" required class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option>1 P.M</option>
+                  <option>4 P.M</option>
+                </select>
+              </div>
+              <!--Submit Button-->
+              <div class="mt-5">
+                <button type="submit" class="submitDate w-full bg-blue-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-blue-700 hover:duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Book a 1 hour session</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- Footer -->
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <footer class="">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+    <p class="text-center text-base text-gray-400">&copy; 2020 Workflow, Inc. All rights reserved.</p>
+    <div class="flex justify-center space-x-6 mt-8 md:mt-0">
+      <a href="https://www.facebook.com/totalrowlivingston/" class="text-gray-400 hover:text-gray-500" target="_blank">
+        <span class="sr-only">Facebook</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/totalrowlivingston/?hl=en" class="text-gray-400 hover:text-gray-500" target="_blank">
+        <span class="sr-only">Instagram</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+        </svg>
+      </a>
+
+      <a href="https://twitter.com/totalrowfitness" class="text-gray-400 hover:text-gray-500" target="_blank">
+        <span class="sr-only">Twitter</span>
+        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+        </svg>
+      </a>
+
+    </div>
+    <div class="mt-8  xl:mt-0">
+      <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Subscribe to our newsletter</h3>
+      <p class="mt-4 text-base text-gray-500">The latest news, articles, and resources, sent to your inbox weekly.</p>
+      <form class="mt-4 sm:flex sm:max-w-md">
+        <label for="email-address" class="sr-only">Email address</label>
+        <input type="email" name="email-address" id="email-address" autocomplete="email" required class="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:placeholder-gray-400" placeholder="Enter your email">
+        <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+          <button type="submit" class="w-full bg-blue-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-blue-700 hover:duration-200 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </footer>
 </body>
 </html>
