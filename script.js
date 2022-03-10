@@ -56,15 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
           //after a date has been selected
           dateOptions[i].addEventListener('click', function() {
             let today = new Date();
-            tomorrow = '0'+(today.getMonth()+1)+'/'+'0'+(today.getDate()+1)+'/'+today.getFullYear();
-            today = '0'+(today.getMonth()+1)+'/'+'0'+today.getDate()+'/'+today.getFullYear();
+            tomorrow = '0'+(today.getMonth()+1)+'/'+(today.getDate()+1)+'/'+today.getFullYear();
+            today = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+            console.log(today);
             console.log(today);
             let selectedDate = datePicker.value;
+            console.log(datePicker.value);
             //delay needed to retrieve value
             setTimeout(() => {
               selectedDate = datePicker.value; console.log(selectedDate)
-              if (selectedDate <= today) {
-
+              if (selectedDate < tomorrow) {
                 selectedDate = tomorrow;
                 console.log(selectedDate);
                 console.log(datePicker);
